@@ -1,0 +1,78 @@
+<!-- Build a flip counter that counts a minute (0-59) iteratively.
+
+If you can, try and minimize the creation of new DOM elements in runtime, by reusing the same elements. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Flip Counter</title>
+    <style>
+    /* --------------------
+     Add your styling here
+     -------------------- */
+      .container {
+        display: flex;
+        width: 100px;
+        height:100px;
+        justify-content: center;
+        align-items: center;
+      }
+
+
+      .first {
+        position: relative;
+        width: 50%;
+        margin-right: 5px;
+        background-color: black;
+        color: white;
+        text-align: center;
+        font-weight: bold;
+        font-size: 30px;
+        border-radius: 2px;
+      }
+
+      .second {
+        position: relative;
+        width: 50%;
+        background-color: black;
+        color: white;
+        text-align: center;
+        font-weight: bold;
+        font-size: 30px;
+        border-radius: 2px;
+      }
+    </style>
+</head>
+<body>
+<div class="container">
+  <div class="node first">
+    0
+  </div>
+  <div class="node second">
+    0
+  </div>
+    <!----------------------
+    Add your markup here
+    ------------------------>
+</div>
+<script>
+    /* --------------------
+     Add your code here
+    --------------------- */
+
+  let counter = 0;
+
+  setInterval(() => {
+      counter = counter % 60;
+      first = Math.floor(counter  / 10);
+      second = counter % 10;
+      console.log('first:', first, second);
+      document.querySelector('.first').innerText = first;
+      document.querySelector('.second').innerText = second;
+      counter++;
+  }, 1000);
+
+</script>
+</body>
+</html>
